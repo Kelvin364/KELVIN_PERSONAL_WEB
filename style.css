@@ -1,0 +1,292 @@
+:root {
+    --bg-color: #0a192f;
+    --text-color: #8892b0;
+    --highlight-color: #64ffda;
+    --header-color: #ccd6f6;
+    --card-bg-color: rgba(255, 255, 255, 0.05);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(10, 25, 47, 0.85);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+nav ul li {
+    margin-right: 2rem;
+}
+
+nav ul li a {
+    color: var(--header-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--highlight-color);
+}
+
+.resume-button, .cta-button {
+    color: var(--highlight-color);
+    background-color: transparent;
+    border: 1px solid var(--highlight-color);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.resume-button:hover, .cta-button:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+}
+
+.mobile-menu-button {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--highlight-color);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.social-sidebar {
+    position: fixed;
+    left: 2rem;
+    bottom: 0;
+    z-index: 10;
+}
+
+.social-sidebar ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.social-sidebar li {
+    margin-bottom: 1rem;
+}
+
+.social-sidebar a {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-sidebar a:hover {
+    color: var(--highlight-color);
+}
+
+main {
+    padding: 6rem 2rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 4rem;
+}
+
+h1, h2, h3 {
+    color: var(--header-color);
+}
+
+#hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: calc(100vh - 6rem);
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: right;
+}
+
+.hero-image img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+    margin-right: 2rem;
+}
+
+#hero h1 {
+    font-size: 1rem;
+    color: var(--highlight-color);
+}
+
+#hero h2 {
+    font-size: 4rem;
+    margin: 0.5rem 0;
+}
+
+#hero h3 {
+    font-size: 3rem;
+    color: var(--text-color);
+    margin: 0.5rem 0 1rem;
+}
+
+.job-card {
+    background-color: var(--card-bg-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(100, 255, 218, 0.1);
+}
+
+.job-card h3 {
+    margin-bottom: 0.5rem;
+}
+
+.job-card .date {
+    font-size: 0.9rem;
+    color: var(--highlight-color);
+    margin-bottom: 1rem;
+}
+
+.project-card {
+    display: flex;
+    margin-bottom: 2rem;
+    background-color: var(--card-bg-color);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(100, 255, 218, 0.1);
+}
+
+.project-image {
+    flex: 1;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-content {
+    flex: 2;
+    padding: 1.5rem;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: rgba(10, 25, 47, 0.85);
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-wrap: wrap;
+    }
+
+    .mobile-menu-button {
+        display: block;
+        order: 1;
+    }
+
+    nav {
+        flex-basis: 100%;
+        order: 3;
+        display: none;
+    }
+
+    nav.show {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul li {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    .resume-button {
+        order: 2;
+    }
+
+    .social-sidebar {
+        position: static;
+        margin-top: 2rem;
+    }
+
+    .social-sidebar ul {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .social-sidebar li {
+        margin: 0 0.5rem;
+    }
+
+    #hero {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero-image {
+        margin-bottom: 2rem;
+    }
+
+    #hero h2 {
+        font-size: 3rem;
+    }
+
+    #hero h3 {
+        font-size: 2rem;
+    }
+
+    .project-card {
+        flex-direction: column;
+    }
+
+    .project-image, .project-content {
+        flex: 1;
+    }
+}
